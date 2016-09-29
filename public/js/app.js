@@ -2,19 +2,37 @@
   //initialize variables
 var startButton = $('#start');
 var seconds = $('#seconds');
+var minutes = $('#minutes');
+var timerInterval;
 
   //main functionality
-startButton.on('click', countdown);
+  startButton.on('click', startTimer);
 
   //function definitions
+  function startTimer(){
+    if(!timerInterval) {
+      timerInterval = setInterval(countdown, 1000);
+    }
+  }
+
   function countdown (){
     var secondsValue = parseInt(seconds.text());
+    var minutesValue = parseInt(minutes.text());
+
+    if(minutesValue === 0 && secondsValue === 0) {
+      return;
+    }
+
     if(secondsValue === 0) {
-      //Change secondsValue to 59
-      seconds.text("59");
+      if(minutesValue !== 0) {
+        //Change secondsValue to 59
+        seconds.text("59");
+        minutes.text(pad(minutesValue - 1));
+      }
     }
     else {
       seconds.text(pad(secondsValue - 1));
+      minutes.text(pad(minutesValue));
     }
   }
 
