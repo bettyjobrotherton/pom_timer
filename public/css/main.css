@@ -5,3 +5,8 @@
 #start {
   font-size: 750%;
 }
+
+#break {
+  font-size: 750%;
+  display: none;
+}

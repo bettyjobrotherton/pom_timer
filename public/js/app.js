@@ -1,6 +1,7 @@
 (function() {
   //initialize variables
 var startButton = $('#start');
+var breakButton = $('#break');
 var seconds = $('#seconds');
 var minutes = $('#minutes');
 var timerInterval;
@@ -20,6 +21,11 @@ var timerInterval;
     var minutesValue = parseInt(minutes.text());
 
     if(minutesValue === 0 && secondsValue === 0) {
+      clearInterval(timerInterval); //stops timer
+      //disable the start button
+      startButton.attr('disabled', true);
+      //unhide the break button
+      breakButton.show();
       return;
     }
 
