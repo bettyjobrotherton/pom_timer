@@ -5,6 +5,7 @@ var breakButton = $('#break');
 var seconds = $('#seconds');
 var minutes = $('#minutes');
 var isOnBreak = false;
+var breakNow = 0;
 var timerInterval;
 
   //main functionality
@@ -16,8 +17,19 @@ var timerInterval;
   function startBreak(){
     //set that user is on a break
     isOnBreak = true;
-    minutes.text('05');
-    seconds.text('00');
+    breakNumber = breakNow + 1;
+    breakNow = breakNumber;
+    if(breakNow !== 3) {
+      //short break time
+      minutes.text('05');
+      seconds.text('00');
+    }
+    else {
+      //long break time
+      minutes.text('15');
+      seconds.text('00');
+      breakNow = 0;
+    }
     breakButton.hide();
     startTimer();
   }
