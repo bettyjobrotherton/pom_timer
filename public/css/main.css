@@ -2,6 +2,14 @@
   font-size: 1800%;
 }
 
+#work {
+  font-size: 300%;
+}
+
+#shortBreak, #longBreak {
+  font-size: 150%;
+}
+
 #start {
   font-size: 750%;
 }

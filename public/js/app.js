@@ -38,10 +38,12 @@ var timerInterval;
       clearInterval(timerInterval);
       timerInterval = null; //stops timer
 
+      //if not on break
       if(!isOnBreak){
         startButton.attr('disabled', true);
         breakButton.show();
       }
+      //if was on break
       else {
         minutes.text('25');
         seconds.text('00');
