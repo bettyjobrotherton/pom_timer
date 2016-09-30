@@ -2,8 +2,11 @@
   //initialize variables
 var startButton = $('#start');
 var breakButton = $('#break');
+var pauseButton = $('#pause');
+var resetButton = $('#reset');
 var seconds = $('#seconds');
 var minutes = $('#minutes');
+var itsTimeFor = $('#itsTimeFor');
 var isOnBreak = false;
 var breakNow = 0;
 var timerInterval;
@@ -11,6 +14,8 @@ var timerInterval;
   //main functionality
   startButton.on('click', startTimer);
   breakButton.on('click', startBreak);
+  pauseButton.on('click', pauseTimer);
+  resetButton.on('click', resetTimer);
 
   //function definitions
   //upon clicking break button
@@ -21,17 +26,34 @@ var timerInterval;
     breakNow = breakNumber;
     if(breakNow !== 3) {
       //short break time
-      minutes.text('05');
-      seconds.text('00');
+      itsTimeFor.text('Just a short break.');
+      minutes.text('00');
+      seconds.text('04');
     }
     else {
       //long break time
-      minutes.text('15');
-      seconds.text('00');
+      itsTimeFor.text('You get a longer break!');
+      minutes.text('00');
+      seconds.text('05');
       breakNow = 0;
     }
     breakButton.hide();
     startTimer();
+  }
+
+  //Upon clicking pause button
+  function pauseTimer(){
+    clearInterval(timerInterval);
+    timerInterval = null;
+  }
+
+  //Upon clicking reset button
+  function resetTimer(){
+    clearInterval(timerInterval);
+    timerInterval = null;
+    minutes.text('25');
+    seconds.text('00');
+    itsTimeFor.text('Time to do some work!');
   }
 
   //Upon clicking start button
@@ -54,13 +76,15 @@ var timerInterval;
       if(!isOnBreak){
         startButton.attr('disabled', true);
         breakButton.show();
+        itsTimeFor.text('Break Time!');
       }
       //if was on break
       else {
-        minutes.text('25');
-        seconds.text('00');
+        minutes.text('00');
+        seconds.text('06');
         startButton.attr('disabled', false);
         isOnBreak = false;
+        itsTimeFor.text('Time for more work.');
       }
       return;
 

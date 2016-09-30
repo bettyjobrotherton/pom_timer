@@ -1,20 +1,26 @@
-#timer {
-  font-size: 1800%;
-}
-/*
-#work {
-  font-size: 300%;
+h1 {
+  font-size: 800%;
 }
 
-#shortBreak, #longBreak {
-  font-size: 150%;
+#itsTimeFor {
+  font-size: 400%;
 }
-*/
-#start {
-  font-size: 750%;
+
+#timer {
+  font-size: 1200%;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+#start, #pause, #reset {
+  font-size: 400%;
 }
 
 #break {
-  font-size: 750%;
+  font-size: 400%;
   display: none;
+}
+
+#buffer {
+  padding: 10px;
 }
