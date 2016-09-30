@@ -12,25 +12,24 @@ var timerInterval;
   breakButton.on('click', startBreak);
 
   //function definitions
+  //upon clicking break button
   function startBreak(){
     //set that user is on a break
     isOnBreak = true;
-    //set minutes to 5 min.
     minutes.text('05');
-    //set seconds to 0 seconds
     seconds.text('00');
-    //hide break button
     breakButton.hide();
-    //start the timer
     startTimer();
   }
 
+  //Upon clicking start button
   function startTimer(){
     if(!timerInterval) {
       timerInterval = setInterval(countdown, 1000);
     }
   }
 
+  //Countdown function
   function countdown (){
     var secondsValue = parseInt(seconds.text());
     var minutesValue = parseInt(minutes.text());
@@ -40,9 +39,7 @@ var timerInterval;
       timerInterval = null; //stops timer
 
       if(!isOnBreak){
-        //disable the start button
         startButton.attr('disabled', true);
-        //unhide the break button
         breakButton.show();
       }
       else {
@@ -57,7 +54,6 @@ var timerInterval;
 
     if(secondsValue === 0) {
       if(minutesValue !== 0) {
-        //Change secondsValue to 59
         seconds.text("59");
         minutes.text(pad(minutesValue - 1));
       }
