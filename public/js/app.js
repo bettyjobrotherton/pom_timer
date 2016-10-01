@@ -4,8 +4,8 @@ var startButton = $('#start');
 var breakButton = $('#break');
 var pauseButton = $('#pause');
 var resetButton = $('#reset');
-var seconds = $('#seconds');
-var minutes = $('#minutes');
+var seconds = $('.seconds');
+var minutes = $('.minutes');
 var itsTimeFor = $('#itsTimeFor');
 var isOnBreak = false;
 var breakNow = 0;
@@ -18,6 +18,9 @@ var timerInterval;
   resetButton.on('click', resetTimer);
 
   //function definitions
+  //Show timer in window tab
+
+
   //upon clicking break button
   function startBreak(){
     //set that user is on a break
@@ -45,12 +48,14 @@ var timerInterval;
   function pauseTimer(){
     clearInterval(timerInterval);
     timerInterval = null;
+    startButton.attr('disabled', false);
   }
 
   //Upon clicking reset button
   function resetTimer(){
     clearInterval(timerInterval);
     timerInterval = null;
+    startButton.attr('disabled', false);
     minutes.text('25');
     seconds.text('00');
     itsTimeFor.text('Time to do some work!');
