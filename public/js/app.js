@@ -113,7 +113,6 @@ var timerInterval;
       //spit out the original number
       return num;
     }
-
-
   }
+  
 }());
