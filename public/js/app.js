@@ -18,9 +18,6 @@ var timerInterval;
   resetButton.on('click', resetTimer);
 
   //function definitions
-  //Show timer in window tab
-
-
   //upon clicking break button
   function startBreak(){
     //set that user is on a break
@@ -116,5 +113,7 @@ var timerInterval;
       //spit out the original number
       return num;
     }
+
+
   }
 }());
