@@ -27,14 +27,14 @@ var timerInterval;
     if(breakNow !== 3) {
       //short break time
       itsTimeFor.text('Just a short break.');
-      minutes.text('05');
-      seconds.text('00');
+      minutes.text('00');
+      seconds.text('06');
     }
     else {
       //long break time
       itsTimeFor.text('You get a longer break!');
-      minutes.text('15');
-      seconds.text('00');
+      minutes.text('00');
+      seconds.text('07');
       breakNow = 0;
     }
     breakButton.hide();
@@ -53,8 +53,8 @@ var timerInterval;
     clearInterval(timerInterval);
     timerInterval = null;
     startButton.attr('disabled', false);
-    minutes.text('25');
-    seconds.text('00');
+    minutes.text('00');
+    seconds.text('08');
     itsTimeFor.text('Time to do some work!');
   }
 
