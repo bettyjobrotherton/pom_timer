@@ -27,14 +27,14 @@ var timerInterval;
     if(breakNow !== 3) {
       //short break time
       itsTimeFor.text('Just a short break.');
-      minutes.text('00');
-      seconds.text('04');
+      minutes.text('05');
+      seconds.text('00');
     }
     else {
       //long break time
       itsTimeFor.text('You get a longer break!');
-      minutes.text('00');
-      seconds.text('05');
+      minutes.text('15');
+      seconds.text('00');
       breakNow = 0;
     }
     breakButton.hide();
@@ -114,5 +114,17 @@ var timerInterval;
       return num;
     }
   }
-  
+
+  $(document).ready(changeTitle);
+
+  function changeTitle (){
+    var title = $('title');
+    var titleInterval;
+  	titleInterval = setInterval(changeTab, 500);
+  }
+
+  function changeTab (){
+  	document.title = minutes.text() + ':' + seconds.text();
+  }
+
 }());
