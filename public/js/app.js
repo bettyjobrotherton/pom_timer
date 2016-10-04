@@ -118,7 +118,6 @@ var timerInterval;
   $(document).ready(changeTitle);
 
   function changeTitle (){
-    var title = $('title');
     var titleInterval;
   	titleInterval = setInterval(changeTab, 500);
   }
